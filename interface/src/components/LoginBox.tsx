@@ -1,15 +1,15 @@
 const LoginBox: React.FC = () => {
   return (
     <div className="LoginBox">
-      <p className="id-pw-input-label id-pw-input-label-1">아이디</p>
+      <p className="id-pw-input-label ">아이디</p>
       <input
-        className="id-pw-input-box id-pw-input-box-1"
+        className="id-pw-input-box "
         type="text"
         placeholder="아이디를 입력하세요"
       />
-      <p className="id-pw-input-label id-pw-input-label-2">비밀번호</p>
+      <p className="id-pw-input-label ">비밀번호</p>
       <input
-        className="id-pw-input-box id-pw-input-box-2"
+        className="id-pw-input-box "
         type="password"
         placeholder="비밀번호를 입력하세요"
       />

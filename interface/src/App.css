@@ -51,7 +51,11 @@
 }
 
 .Header .headerCenter .cateLink:hover {
-  color: #d8dfff;
+  color: #657eff;
+}
+
+.Header .headerCenter .cateLink:first-child {
+  font-weight: bold;
 }
 
 .Header .headerRight .cateLink {
@@ -84,43 +88,44 @@
 
 .Login {
   background-color: #d8dfff;
+  position: relative;
+  width: 100vw;
+  text-align: center;
+}
+
+.Login .logo3 {
+  margin: 80px 0;
+  width: 200px;
 }
 
 /* LoginBox */
 
 .LoginBox {
-  position: relative;
   font-family: "Pretendard-Regular";
   width: 656px;
+  /* min-width: 300px; */
   height: 416px;
   border-radius: 19px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(25px);
+  margin: 0 auto;
+  padding: 52px 50px;
+  text-align: left;
 }
 
 .LoginBox .id-pw-input-label {
   color: var(--accent-color-light);
   font-size: 18px;
   font-weight: 700;
-}
 
-.LoginBox .id-pw-input-label-1 {
-  position: absolute;
-  top: 52px;
-  left: 50px;
-}
-
-.LoginBox .id-pw-input-label-2 {
-  position: absolute;
-  top: 186px;
-  left: 50px;
+  margin-bottom: 16px;
 }
 
 .LoginBox .id-pw-input-box {
-  width: 557px;
-  height: 60px;
+  width: 100%;
+  height: 10%;
   padding: 24px 32px;
 
   font-size: 18px;
@@ -129,17 +134,8 @@
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(25px);
-}
 
-.LoginBox .id-pw-input-box-1 {
-  position: absolute;
-  left: 50px;
-  top: 86px;
-}
-.LoginBox .id-pw-input-box-2 {
-  position: absolute;
-  left: 50px;
-  top: 220px;
+  margin-bottom: 40px;
 }
 
 .LoginBox .id-pw-input-box::placeholder {
@@ -165,8 +161,6 @@
   font-weight: 600;
 
   cursor: pointer;
-
-  position: absolute;
-  top: 320px;
-  left: 243px;
+  display: block;
+  margin: 0 auto;
 }
