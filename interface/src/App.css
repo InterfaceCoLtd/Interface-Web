@@ -154,6 +154,11 @@
   backdrop-filter: blur(25px);
 
   margin-bottom: 40px;
+  outline: none;
+}
+
+.LoginBox .id-pw-input-box:focus {
+  box-shadow: 0 0 10px #657eff;
 }
 
 .LoginBox .id-pw-input-box::placeholder {
@@ -181,10 +186,19 @@
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  transition: all 0.2s;
+  transition: background-color 0.2s;
 }
 
 .LoginBox .login-btn:hover {
   background: #658fff;
-  transition: all 0.2s;
+  transition: background-color 0.2s;
+}
+
+.LoginBox .login-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px #657eff;
+}
+
+.LoginBox .login-btn:active {
+  box-shadow: 0 0 10px #657eff;
 }
