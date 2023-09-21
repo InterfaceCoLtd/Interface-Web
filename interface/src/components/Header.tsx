@@ -1,14 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import MyButton from "./MyButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faCartShopping,
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-// import myInfo from "../utils/myInfo";
-// import Sidebar from "./Sidebar";
 import { useState } from "react";
 import "../App.css";
 
