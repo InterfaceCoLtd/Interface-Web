@@ -1,38 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* font-family: "Pretendard-Regular"; */
+/* font-family: 'Do Hyeon', sans-serif; */
+
 .App {
-  text-align: center;
+  font-family: "Pretendard-Regular";
+}
+.Home {
+  background-color: red;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Header */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Header {
+  background-color: rgba(255, 255, 255, 0.3);
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-weight: 500;
+}
+.Header .headerLeft {
+  margin-right: 40px;
+}
+.Header .headerCenter {
+  display: flex;
+  justify-content: right;
+  flex-grow: 1;
+  color: black;
+}
+.Header .headerCenter .cateLink {
+  text-decoration: none;
+  color: black;
+  margin-right: 40px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.Header .headerCenter .cateLink:hover {
+  color: #d8dfff;
+}
+
+.Header .headerRight .cateLink {
+  color: #657eff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.Header .headerRight {
+  display: flex;
+  flex-grow: 0.2;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Header .headerRight > * {
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Header .headerRight .bar {
+  width: 2px;
+  height: 18px;
+  margin: 0 10px;
+  background-color: #657eff;
 }
