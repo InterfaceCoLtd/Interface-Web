@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = () => {
           <img
             className="logo"
             alt=""
-            src={process.env.PUBLIC_URL + `/assets/인페 로고-02.png`}
+            src={process.env.PUBLIC_URL + `/assets/인페 로고-04.png`}
             width="200px"
           ></img>
         </Link>
@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = () => {
             </Link>
           </span>
         ) : (
-          <Link className="cateLink" to={"/"}>
+          <Link className="cateLink" to={"/Login"}>
             로그인
           </Link>
         )}
