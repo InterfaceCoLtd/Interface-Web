@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400, 500, 600, 700, 800, 900;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Header */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Header {
+  background-color: rgba(255, 255, 255, 0.3);
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-weight: 500;
+  z-index: 1;
+  min-width: 1024px;
+}
+.Header .headerLeft {
+  margin-right: 40px;
+}
+.Header .headerCenter {
+  display: flex;
+  justify-content: right;
+  flex-grow: 1;
+  color: black;
+}
+.Header .headerCenter .cateLink {
+  text-decoration: none;
+  color: black;
+  margin-right: 40px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.Header .headerCenter .cateLink:hover {
+  color: #657eff;
+}
+
+.Header .headerCenter .cateLink:first-child {
+  font-weight: bold;
+}
+
+.Header .headerRight .cateLink {
+  color: #657eff;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.Header .headerRight {
+  display: flex;
+  flex-grow: 0.2;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.Header .headerRight > * {
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.Header .headerRight .bar {
+  width: 1.5px;
+  height: 18px;
+  margin: 0 10px;
+  background-color: #657eff;
+}
+
+/* Login */
+
+.Login {
+  background-color: #d8dfff;
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  min-width: 1024px;
+}
+
+.Login .logo3 {
+  margin: 80px 0;
+  width: 200px;
+}
+
+.Login .signup-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+  padding-bottom: 100px;
+  align-items: center;
+}
+
+.Login .signup-text {
+  color: #657eff;
+  cursor: pointer;
+  font-family: "Pretendard-Regular";
+}
+
+.Login .bar {
+  width: 1px;
+  height: 16px;
+  margin: 0 10px;
+  background-color: #657eff;
+}
+
+/* LoginBox */
+
+.LoginBox {
+  font-family: "Pretendard-Regular";
+  width: 656px;
+  height: 416px;
+  border-radius: 19px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(25px);
+  margin: 0 auto;
+  padding: 52px 50px;
+  text-align: left;
+}
+
+.LoginBox .id-pw-input-label {
+  color: #657eff;
+  font-size: 18px;
+  font-weight: 700;
+
+  margin-bottom: 16px;
+}
+
+.LoginBox .id-pw-input-box {
+  width: 100%;
+  height: 60px;
+  padding: 24px 32px;
+
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(25px);
+
+  margin-bottom: 40px;
+  outline: none;
+}
+
+.LoginBox .id-pw-input-box:focus {
+  box-shadow: 0 0 10px #657eff;
+}
+
+.LoginBox .id-pw-input-box::placeholder {
+  font-weight: 500;
+  color: #919192;
+}
+
+.LoginBox .login-btn {
+  font-family: "Pretendard-Regular";
+
+  width: 160px;
+  height: 48px;
+
+  border-radius: 10px;
+  background: #657eff;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  border: none;
   color: white;
+  line-height: 20px;
+
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background-color 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+.LoginBox .login-btn:hover {
+  background: #658fff;
+  transition: background-color 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.LoginBox .login-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px #657eff;
+}
+
+.LoginBox .login-btn:active {
+  box-shadow: 0 0 10px #657eff;
 }
