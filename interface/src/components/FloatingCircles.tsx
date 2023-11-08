@@ -2,20 +2,28 @@ import React, { useEffect, useState } from "react";
 import circleImage from "./circle.png"; // Import your image file
 
 const FloatingCircles: React.FC = () => {
-  const numCircles = 4;
-  const circleDiameter = 40;
-  const circleSpeed = 0.5; // Adjust the speed as needed
+  const numCircles = 2;
+  const circleSpeed = 0.2; // Adjust the speed as needed
+
   const [circleData, setCircleData] = useState(() =>
     Array.from({ length: numCircles }, () => ({
-      size: Math.random() * 1000,
-      left: Math.random() * (window.innerWidth - circleDiameter),
-      top: Math.random() * window.innerHeight,
+      size: 0,
+      left: 0,
+      top: 0,
       directionX: Math.random() < 0.5 ? 1 : -1,
       directionY: Math.random() < 0.5 ? 1 : -1,
     }))
   );
 
   useEffect(() => {
+    circleData[0].size = 720;
+    circleData[1].size = 480;
+
+    circleData[0].left = window.innerWidth * 0.6;
+    circleData[0].top = window.innerHeight * 0.05;
+    circleData[1].left = window.innerWidth * 0.1;
+    circleData[1].top = window.innerHeight * 0.4;
+
     const moveCircles = () => {
       setCircleData((prevData) =>
         prevData.map((circle) => {
@@ -23,10 +31,7 @@ const FloatingCircles: React.FC = () => {
           const newTop = circle.top + circleSpeed * circle.directionY;
 
           // Check for collisions with screen edges
-          if (
-            newLeft < 0 ||
-            newLeft > window.innerWidth - circle.size
-          ) {
+          if (newLeft < 0 || newLeft > window.innerWidth - circle.size) {
             circle.directionX *= -1;
           }
           if (newTop < 0 || newTop > window.innerHeight - circle.size) {
@@ -50,12 +55,12 @@ const FloatingCircles: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative", height: "100vh" }}>
+    <div className="FloatingCircles">
       {circleData.map((circle, index) => (
         <img
           key={index}
           src={process.env.PUBLIC_URL + `/assets/Vector.svg`} // Use your image source
-          style={{  
+          style={{
             position: "absolute",
             width: circle.size,
             height: circle.size,

@@ -4,11 +4,16 @@ const NoticeBox: React.FC = () => {
   return (
     <div className="NoticeBox">
       <div className="notice-left">
-        <textarea className="notice-title-input" placeholder="공지사항 제목" />
+        <textarea
+          className="notice-title-input"
+          placeholder="공지사항 제목"
+          spellCheck="false"
+        />
         <div className="notice-sub-title">공지사항 설명</div>
         <textarea
           className="notice-content-input"
           placeholder="여기에 공지사항의 내용을 적어주세요."
+          spellCheck="false"
         />
         {/* ------------------------------------ */}
         <div className="notice-sub-title">투표 선택</div>
@@ -29,6 +34,7 @@ const NoticeBox: React.FC = () => {
             />
           </div>
         </div>
+        <div className="complete-button">작성 완료</div>
       </div>
       <div className="notice-right"></div>
     </div>
