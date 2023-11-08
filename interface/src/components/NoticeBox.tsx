@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const NoticeBox: React.FC = () => {
   return (
     <div className="NoticeBox">
@@ -11,10 +13,22 @@ const NoticeBox: React.FC = () => {
         {/* ------------------------------------ */}
         <div className="notice-sub-title">투표 선택</div>
         <div className="select-box">
-          <div className="plus-button"></div>
+          <div className="plus-button">
+            <FontAwesomeIcon
+              icon={faPlus}
+              style={{ color: "#DEDEDE", fontSize: 13 }}
+            />
+          </div>
         </div>
         <div className="notice-sub-title">일정 선택</div>
-        <div className="select-box"></div>
+        <div className="select-box">
+          <div className="plus-button">
+            <FontAwesomeIcon
+              icon={faPlus}
+              style={{ color: "#DEDEDE", fontSize: 13 }}
+            />
+          </div>
+        </div>
       </div>
       <div className="notice-right"></div>
     </div>
