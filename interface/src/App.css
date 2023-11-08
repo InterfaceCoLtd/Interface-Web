@@ -1,3 +1,9 @@
+:root {
+  --purple-bg-color: #efedff;
+  --text-color-light: #242425;
+  --accent-color-25-light: #d8dfff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +16,10 @@
     format("woff");
   font-weight: 400, 500, 600, 700, 800, 900;
   font-style: normal;
+}
+.Home{
+  background-color: var(--purple-bg-color);
+  z-index: -1;
 }
 
 /* Header */
@@ -201,4 +211,96 @@
 
 .LoginBox .login-btn:active {
   box-shadow: 0 0 10px #657eff;
+}
+
+/* NoticeBox */
+.Notice {
+  background-color: var(--purple-bg-color);
+  text-align: center;
+}
+
+.NoticeBox {
+  display: inline-flex;
+  border-radius: 19px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(25px);
+  padding: 5px 30px;
+  margin: 63px 0;
+}
+.NoticeBox .notice-title-input {
+  outline: none;
+  border: none;
+}
+
+.NoticeBox .notice-content-input {
+  padding: 16px 24px;
+  width: 491px;
+  height: 278px;
+
+  border-radius: 19px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(25px);
+  outline: none;
+}
+.NoticeBox .notice-left .notice-sub-title {
+  text-align: left;
+  color: var(--text-color-light, #242425);
+  font-family: Pretendard-Regular;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+.NoticeBox .notice-left .select-box {
+  border-radius: 18px;
+  border: 1px solid var(--accent-color-25-light);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin-bottom: 20px;
+}
+.NoticeBox .notice-left .select-box .plus-button {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.NoticeBox .notice-right {
+}
+
+
+.moving-circles {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  /* width: 50px;
+  height: 50px;
+   */
+
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveCircle {
+  0% {
+    transform: translate(var(--start-x), var(--start-y));
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y));
+  }
 }
