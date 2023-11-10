@@ -14,45 +14,15 @@ export const DataContext = createContext({
 });
 
 function App() {
-  const [plansData, setPlansData] = useState([]);
-  const [selectedPlan, setSelectedPlan] = useState("");
-  const [votesData, setVotesData] = useState([]);
-  const [selectedVote, setSelectedVote] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      apiGetVotes().then(({ data }) => setVotesData(data.data));
-      apiGetVotes().then(({ data }) => setPlansData(data)); //? 일정으로 바꾸기
-
-      try {
-        const plans = await apiGetVotes(); //일정으로 바꾸기
-        setPlansData(plans);
-
-        console.log("받아온 일정 데이터:", plans);
-      } catch (error) {
-        console.error("에러 발생:", error);
-      }
-    };
-  });
-
   return (
     <div className="App">
-      <DataContext.Provider
-        value={{
-          votesData,
-          selectedPlan,
-          plansData,
-          selectedVote,
-        }}
-      >
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/notice" element={<Notice />} />
-          </Routes>
-        </BrowserRouter>
-      </DataContext.Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/notice" element={<Notice />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

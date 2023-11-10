@@ -221,6 +221,7 @@
   background-color: var(--purple-bg-color);
   text-align: center;
   height: 100vh;
+  width: 100vw;
 }
 
 .NoticeBox {
@@ -231,19 +232,17 @@
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(25px);
   text-align: left;
-
   height: 80%;
   margin-top: 40px;
   padding: 10px;
-  width: 65%;
-  min-width: 800px;
 }
 
 .NoticeBox .notice-left {
   position: relative;
   overflow-y: scroll;
   padding: 0 40px;
-  flex-grow: 1;
+  width: 38vw;
+  min-width: 400px;
 }
 
 .NoticeBox .notice-title-input {
@@ -333,11 +332,11 @@
   bottom: 10%;
   transform: translate(-50%, 0%);
 }
-
+.NoticeBox .notice-right {
+}
 .NoticeBox .notice-right.voteTab,
 .NoticeBox .notice-right.planTab {
   overflow-y: scroll;
-  flex-grow: 0.3;
 }
 
 /* 스크롤바의 폭 너비 */
@@ -365,6 +364,8 @@
 .VoteBox,
 .PlanBox {
   padding: 30px;
+  width: 25vw;
+  min-width: 300px;
 }
 
 .VoteCard,

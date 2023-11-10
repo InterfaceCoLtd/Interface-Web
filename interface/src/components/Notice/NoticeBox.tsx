@@ -7,6 +7,17 @@ import { useContext, createContext, useState, useEffect } from "react";
 import apiGetVotes from "../../utils/apiGetVotes";
 
 const NoticeBox: React.FC = () => {
+  const [plansData, setPlansData] = useState([]);
+  const [votesData, setVotesData] = useState([]);
+  const [selectedPlan, setSelectedPlan] = useState("");
+  const [selectedVote, setSelectedVote] = useState("");
+
+  useEffect(() => {
+    apiGetVotes().then((data) => {
+      setVotesData(data);
+    });
+  }, []);
+
   const [votePlanTab, setVotePlanTab] = useState(0);
 
   return (
@@ -38,7 +49,7 @@ const NoticeBox: React.FC = () => {
         <div className="select-box">
           <PlusMinusButton
             type="plus"
-            color="purple"
+            color="white"
             onClick={() => {
               votePlanTab == 2 ? setVotePlanTab(0) : setVotePlanTab(2);
             }}
@@ -51,7 +62,7 @@ const NoticeBox: React.FC = () => {
           votePlanTab == 2 && "planTab"
         }`}
       >
-        {votePlanTab == 1 && <VoteBox />}
+        {votePlanTab == 1 && <VoteBox votesData={votesData} />}
         {votePlanTab == 2 && <PlanBox />}
       </div>
     </div>

@@ -7,10 +7,9 @@ const apiGetVotes = async () => {
         Authorization: process.env.REACT_APP_TOKEN,
       },
     });
-    console.log("response:", response);
     return response.data;
   } catch (error) {
-    console.error("에러:", error);
+    console.error(error);
   }
 };
 
