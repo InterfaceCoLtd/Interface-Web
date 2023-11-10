@@ -19,6 +19,7 @@
   font-weight: 400, 500, 600, 700, 800, 900;
   font-style: normal;
 }
+
 .Home {
   background-color: var(--purple-bg-color);
   z-index: -1;
@@ -360,11 +361,13 @@
 
 /* VoteBox */
 
-.VoteBox {
+.VoteBox,
+.PlanBox {
   padding: 30px;
 }
 
-.VoteCard {
+.VoteCard,
+.PlanCard {
   border-radius: 19px;
   border: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -393,14 +396,17 @@
   letter-spacing: -0.2px;
   margin: 0 4px;
 }
-.voteCard-time {
+.voteCard-time,
+.PlanCard-time {
   color: var(--caution-color-light);
   font-family: Pretendard;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: -0.6px;
 }
-.voteCard-title {
+
+.voteCard-title,
+.PlanCard-title {
   color: var(--text-color-light);
   font-family: Pretendard;
   font-size: 18px;
@@ -408,7 +414,9 @@
   line-height: 20px; /* 100% */
   letter-spacing: -0.6px;
 }
-.voteCard-period {
+
+.voteCard-period,
+.PlanCard-period {
   color: #5b5b5c;
   font-family: Pretendard;
   font-size: 12px;
@@ -417,11 +425,16 @@
   line-height: 12px; /* 100% */
   letter-spacing: -0.24px;
 }
-.voteCard-wrapper {
+.voteCard-wrapper,
+.PlanCard-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 5px 0 15px 0;
+}
+
+.PlanCard-wrapper {
+  margin-top: 4px;
 }
 
 /* Plus-minus-button */

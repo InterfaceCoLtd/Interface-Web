@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import VoteBox from "./VoteBox";
 import PlusMinusButton from "./PlusMinusButton";
+import PlanBox from "./PlanBox";
 const NoticeBox: React.FC = () => {
   return (
     <div className="NoticeBox">
@@ -30,6 +31,7 @@ const NoticeBox: React.FC = () => {
       </div>
       <div className="notice-right">
         <VoteBox />
+        <PlanBox />
       </div>
     </div>
   );
