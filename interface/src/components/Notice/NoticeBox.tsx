@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import VoteBox from "./VoteBox";
-import PlusMinusButton from "./PlusMinusButton";
-import PlanBox from "./PlanBox";
+import VoteBox from "./VoteBox/VoteBox";
+import PlusMinusButton from "../Common/PlusMinusButton";
+import PlanBox from "./PlanBox/PlanBox";
 const NoticeBox: React.FC = () => {
   return (
     <div className="NoticeBox">

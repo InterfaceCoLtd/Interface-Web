@@ -1,4 +1,4 @@
-import PlusMinusButton from "./PlusMinusButton";
+import PlusMinusButton from "../../Common/PlusMinusButton";
 
 const VoteCard: React.FC = () => {
   return (

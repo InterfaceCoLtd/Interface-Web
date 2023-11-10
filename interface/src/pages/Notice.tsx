@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import FloatingCircles from "../components/FloatingCircles";
-import NoticeBox from "../components/NoticeBox";
+import Header from "../components/Common/Header";
+import FloatingCircles from "../components/Common/FloatingCircles";
+import NoticeBox from "../components/Notice/NoticeBox";
 
 const Notice: React.FC = () => {
   return (

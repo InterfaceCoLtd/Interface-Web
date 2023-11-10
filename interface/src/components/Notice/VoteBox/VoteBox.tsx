@@ -1,5 +1,5 @@
 import VoteCard from "./VoteCard";
-import apiGetVotes from "../utils/apiGetVotes";
+import apiGetVotes from "../../../utils/apiGetVotes";
 import { useEffect } from "react";
 
 const VoteBox: React.FC = () => {

@@ -1,10 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "../App.css";
 
-interface HeaderProps {
-  // 정의해야 할 프롭스 (props)가 있다면 여기에 추가
-}
+interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   // const navigate = useNavigate();
