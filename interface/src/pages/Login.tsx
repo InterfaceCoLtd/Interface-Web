@@ -7,7 +7,7 @@ const Login: React.FC = () => {
       <Header />
       <img
         className="logo3"
-        src={process.env.PUBLIC_URL + `/assets/인페 로고-03.svg`}
+        src={process.env.PUBLIC_URL + `/assets/interface_logo-03.svg`}
       />
       <LoginBox />
 

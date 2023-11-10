@@ -243,7 +243,7 @@
   position: relative;
   overflow-y: scroll;
   padding: 0 40px;
-  flex-grow: 0.7;
+  flex-grow: 1;
 }
 
 .NoticeBox .notice-title-input {
@@ -334,7 +334,8 @@
   transform: translate(-50%, 0%);
 }
 
-.NoticeBox .notice-right {
+.NoticeBox .notice-right.voteTab,
+.NoticeBox .notice-right.planTab {
   overflow-y: scroll;
   flex-grow: 0.3;
 }

@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = () => {
           <img
             className="logo"
             alt=""
-            src={process.env.PUBLIC_URL + `/assets/인페 로고-04.png`}
+            src={process.env.PUBLIC_URL + `/assets/interface_logo.png`}
             width="150px"
           ></img>
         </Link>

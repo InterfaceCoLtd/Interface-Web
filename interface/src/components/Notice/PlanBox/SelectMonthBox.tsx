@@ -35,13 +35,14 @@ const SelectMonthBox: React.FC = () => {
       />
 
       <div className={`month-box`}>
-        {monthNum.map((it) => {
+        {monthNum.map((it, idx) => {
           return (
             <div
               className={`MonthButton ${compareDay(it)}`}
               onClick={() => {
                 handleMonth(it);
               }}
+              key={idx}
             >
               {((firstMonth.getMonth() + it) % 12) + 1}월
             </div>
