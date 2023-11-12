@@ -3,9 +3,16 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const SelectMonthBox: React.FC = () => {
+interface PlanBoxPorps {
+  selectedMonth: Date;
+  setSelectedMonth: React.Dispatch<React.SetStateAction<Date>>;
+}
+
+const SelectMonthBox: React.FC<PlanBoxPorps> = ({
+  selectedMonth,
+  setSelectedMonth,
+}) => {
   const [firstMonth, setFirstMonth] = useState(new Date()); //월 목록 첫번째
-  const [selectedMonth, setSelectedMonth] = useState(new Date()); //선택된 날짜
 
   const monthNum = [0, 1, 2, 3];
   const handleMonth = (it: number) => {

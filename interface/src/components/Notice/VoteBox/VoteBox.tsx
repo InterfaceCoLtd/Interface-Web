@@ -1,24 +1,23 @@
 import VoteCard from "./VoteCard";
 import apiGetVotes from "../../../utils/apiGetVotes";
 import { useEffect } from "react";
+import { VoteType } from "../../../types/type";
 
-interface SubjectData {
-  subjectId: number;
-  subject: string;
-  startDate: string;
-  endDate: string;
-  total: number;
-}
 interface VoteBoxProps {
-  votesData: SubjectData[];
+  votesData: VoteType[];
+  changePlusVote: (item: VoteType) => void;
 }
 
-const VoteBox: React.FC<VoteBoxProps> = ({ votesData }) => {
+const VoteBox: React.FC<VoteBoxProps> = ({ votesData, changePlusVote }) => {
   return (
     <div className="VoteBox">
       <div className="notice-sub-title">투표선택</div>
       {votesData.map((it, idx) => (
-        <VoteCard voteData={it} />
+        <VoteCard
+          voteData={it}
+          changeSelectedVote={changePlusVote}
+          type={"plus"}
+        />
       ))}
     </div>
   );
