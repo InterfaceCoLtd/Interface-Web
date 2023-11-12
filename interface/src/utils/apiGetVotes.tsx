@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiGetVotes = () => {
   axios
-    .get("https://api.interfacesejong.xyz/api/votes", {
+    .get(`${process.env.REACT_APP_API_URL}/votes`, {
       headers: {
         Authorization: process.env.TOKEN,
       },

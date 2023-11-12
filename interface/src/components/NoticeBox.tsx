@@ -1,5 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import VoteBox from "./VoteBox";
+import PlusMinusButton from "./PlusMinusButton";
+import PlanBox from "./PlanBox";
 const NoticeBox: React.FC = () => {
   return (
     <div className="NoticeBox">
@@ -18,25 +21,18 @@ const NoticeBox: React.FC = () => {
         {/* ------------------------------------ */}
         <div className="notice-sub-title">투표 선택</div>
         <div className="select-box">
-          <div className="plus-button">
-            <FontAwesomeIcon
-              icon={faPlus}
-              style={{ color: "#DEDEDE", fontSize: 13 }}
-            />
-          </div>
+          <PlusMinusButton type="plus" color="white" />
         </div>
         <div className="notice-sub-title">일정 선택</div>
         <div className="select-box">
-          <div className="plus-button">
-            <FontAwesomeIcon
-              icon={faPlus}
-              style={{ color: "#DEDEDE", fontSize: 13 }}
-            />
-          </div>
+          <PlusMinusButton type="plus" color="purple" />
         </div>
         <div className="complete-button">작성 완료</div>
       </div>
-      <div className="notice-right"></div>
+      <div className="notice-right">
+        <VoteBox />
+        <PlanBox />
+      </div>
     </div>
   );
 };

@@ -16,8 +16,8 @@ const FloatingCircles: React.FC = () => {
   );
 
   useEffect(() => {
-    circleData[0].size = 720;
-    circleData[1].size = 480;
+    circleData[0].size = window.innerWidth * 0.3;
+    circleData[1].size = window.innerWidth * 0.2;
 
     circleData[0].left = window.innerWidth * 0.6;
     circleData[0].top = window.innerHeight * 0.05;
