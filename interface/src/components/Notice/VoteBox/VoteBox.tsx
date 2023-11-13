@@ -14,6 +14,7 @@ const VoteBox: React.FC<VoteBoxProps> = ({ votesData, changePlusVote }) => {
       <div className="notice-sub-title">투표선택</div>
       {votesData.map((it, idx) => (
         <VoteCard
+          key={idx}
           voteData={it}
           changeSelectedVote={changePlusVote}
           type={"plus"}

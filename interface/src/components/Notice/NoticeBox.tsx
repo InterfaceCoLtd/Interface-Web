@@ -3,20 +3,30 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import VoteBox from "./VoteBox/VoteBox";
 import PlusMinusButton from "../Common/PlusMinusButton";
 import PlanBox from "./PlanBox/PlanBox";
-import { useContext, createContext, useState, useEffect } from "react";
+import { useContext, createContext, useState, useEffect, useRef } from "react";
 import apiGetVotes from "../../utils/apiGetVotes";
 import { PlanType, VoteType } from "../../types/type";
 import VoteCard from "./VoteBox/VoteCard";
 import PlanCard from "./PlanBox/PlanCard";
 import apiGetPlans from "../../utils/apiGetPlans";
+import apiPostBoards from "../../utils/apiPostBoards";
+import { title } from "process";
+import { useNavigate } from "react-router-dom";
 
 const NoticeBox: React.FC = () => {
+  const navigate = useNavigate();
   const [votesData, setVotesData] = useState<VoteType[]>([]);
   const [plansData, setPlansData] = useState<PlanType[]>([]);
-  const [selectedPlan, setSelectedPlan] = useState<PlanType | null>(null);
   const [selectedVote, setSelectedVote] = useState<VoteType | null>(null);
-
+  const [selectedPlan, setSelectedPlan] = useState<PlanType | null>(null);
   const [selectedMonth, setSelectedMonth] = useState(new Date()); //선택된 날짜
+  const [votePlanTab, setVotePlanTab] = useState(0);
+
+  // ------------------------------------------------------------------------------
+  const [noticeTitle, setNoticeTitle] = useState("");
+  const [noticeContent, setNoticeContent] = useState("");
+  const titleInputRef = useRef<HTMLTextAreaElement | null>(null);
+  const contentInputRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
     apiGetPlans(selectedMonth.getMonth() + 1).then((data) => {
@@ -31,7 +41,6 @@ const NoticeBox: React.FC = () => {
       );
     }
   }, [selectedPlan]);
-
   const plusPlan = (item: PlanType) => {
     setSelectedPlan(item);
     if (selectedPlan != null) {
@@ -77,7 +86,40 @@ const NoticeBox: React.FC = () => {
     setSelectedVote(null);
   };
 
-  const [votePlanTab, setVotePlanTab] = useState(0);
+  const handleSubmit = () => {
+    {
+      // 제목이나 내용 입력 안한 경우
+      if (!(noticeTitle && noticeContent)) {
+        if (!noticeTitle) {
+          titleInputRef.current?.focus();
+        } else if (!noticeContent) {
+          contentInputRef.current?.focus();
+        }
+        return;
+      }
+
+      apiPostBoards(
+        noticeTitle,
+        noticeContent,
+        1, // 로그인 구현 후 userId로 수정해야 함
+        selectedVote?.subjectId,
+        selectedPlan?.id
+      )
+        .then(() => {
+          setNoticeTitle("");
+          setNoticeContent("");
+          setSelectedVote(null);
+          setSelectedPlan(null);
+          setVotePlanTab(0);
+
+          alert("공지사항 작성 완료");
+          navigate("/");
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    }
+  };
 
   return (
     <div className="NoticeBox">
@@ -85,15 +127,24 @@ const NoticeBox: React.FC = () => {
         <textarea
           className="notice-title-input"
           placeholder="공지사항 제목"
+          ref={titleInputRef}
           spellCheck="false"
+          value={noticeTitle}
+          onChange={(e) => {
+            setNoticeTitle(e.target.value);
+          }}
         />
         <div className="notice-sub-title">공지사항 설명</div>
         <textarea
           className="notice-content-input"
           placeholder="여기에 공지사항의 내용을 적어주세요."
+          ref={contentInputRef}
           spellCheck="false"
+          value={noticeContent}
+          onChange={(e) => {
+            setNoticeContent(e.target.value);
+          }}
         />
-        {/* ------------------------------------ */}
         <div className="notice-sub-title">투표 선택</div>
 
         <div className={`select-box ${selectedVote === null || "selected"}`}>
@@ -131,7 +182,9 @@ const NoticeBox: React.FC = () => {
             />
           )}
         </div>
-        <div className="complete-button">작성 완료</div>
+        <div className="complete-button" onClick={handleSubmit}>
+          작성 완료
+        </div>
       </div>
       <div
         className={`notice-right ${votePlanTab == 1 && "voteTab"} ${
