@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import PlusMinusButton from "../../Common/PlusMinusButton";
+import { VoteType } from "../../../types/type";
 
 interface VoteCardProps {
-  voteData: {
-    subjectId: number;
-    subject: string;
-    startDate: string;
-    endDate: string;
-    total: number;
-  };
+  voteData: VoteType;
+  changeSelectedVote: (item: VoteType) => void;
+  type: string;
 }
 
-const VoteCard: React.FC<VoteCardProps> = ({ voteData }) => {
+const VoteCard: React.FC<VoteCardProps> = ({
+  voteData,
+  changeSelectedVote,
+  type,
+}) => {
   const [remainDate, setRemainDate] = useState(calcRemainDate());
+  const startDate = new Date(voteData.startDate);
+  const endDate = new Date(voteData.endDate);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -39,10 +42,18 @@ const VoteCard: React.FC<VoteCardProps> = ({ voteData }) => {
       </div>
       <div className="voteCard-wrapper">
         <div className="voteCard-title"> {voteData.subject}</div>
-        <PlusMinusButton type="plus" color="purple" />
+        <PlusMinusButton
+          type={type}
+          color="purple"
+          onClick={() => {
+            changeSelectedVote(voteData);
+          }}
+        />
       </div>
       <div className="voteCard-period">
-        {voteData.startDate} ~ {voteData.endDate}
+        {startDate.getFullYear() % 100}/{startDate.getMonth() + 1}/
+        {startDate.getDate()} ~ {endDate.getFullYear() % 100}/
+        {endDate.getMonth() + 1}/{endDate.getDate()}
       </div>
     </div>
   );
