@@ -1,19 +1,16 @@
 import axios from "axios";
 
-const apiGetVotes = () => {
-  axios
-    .get(`${process.env.REACT_APP_API_URL}/votes`, {
+const apiGetVotes = async () => {
+  try {
+    const response = await axios.get(`/api/votes`, {
       headers: {
-        Authorization: process.env.TOKEN,
+        Authorization: process.env.REACT_APP_TOKEN,
       },
-    })
-    .then((response) => {
-      console.log("response:", response);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error("에러:", error);
     });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export default apiGetVotes;

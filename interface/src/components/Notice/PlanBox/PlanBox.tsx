@@ -6,7 +6,6 @@ const PlanBox: React.FC = () => {
     <div className="PlanBox">
       <div className="notice-sub-title">일정 선택</div>
       <SelectMonthBox />
-
       <PlanCard />
       <PlanCard />
       <PlanCard />
