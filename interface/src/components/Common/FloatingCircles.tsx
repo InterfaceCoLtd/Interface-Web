@@ -66,7 +66,6 @@ const FloatingCircles: React.FC = () => {
             height: circle.size,
             left: circle.left,
             top: circle.top,
-            // zIndex: -1,
           }}
         />
       ))}
