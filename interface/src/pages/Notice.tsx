@@ -1,16 +1,15 @@
-import React from "react";
-import logo from "./logo.svg";
-// import "./App.css";
 import Header from "../components/Common/Header";
 import FloatingCircles from "../components/Common/FloatingCircles";
+import NoticeBox from "../components/Notice/NoticeBox";
 
-function Home() {
+const Notice: React.FC = () => {
   return (
-    <div className="Home">
+    <div className="Notice">
       <Header />
       <FloatingCircles />
+      <NoticeBox />
     </div>
   );
-}
+};
 
-export default Home;
+export default Notice;
