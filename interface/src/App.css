@@ -107,7 +107,7 @@
   min-height: 100vh;
   text-align: center;
   min-width: 1024px;
-  height: 100vh;
+  padding-bottom: 30px;
 }
 
 .Login .logo3 {
@@ -158,6 +158,7 @@
   margin: 0 auto;
   padding: 52px 50px;
   text-align: left;
+  margin-bottom: 30px;
 }
 
 .LoginBox .id-pw-input-label {
