@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-// import "./App.css";
 import Header from "../components/Common/Header";
 import FloatingCircles from "../components/Common/FloatingCircles";
+
+const event_imgs = [
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://i.pinimg.com/236x/7d/64/73/7d6473ff1597973387fab055b8736f18.jpg",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
+  "https://i.pinimg.com/236x/0d/94/03/0d9403c6e70152a3f4afc1507307bb22.jpg",
+];
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +28,19 @@ function Home() {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  const createImgArr = () => {
+    const imgArr: string[][] = [];
+
+    for (let i = 0; i < 4; i++) imgArr[i] = [];
+
+    event_imgs.forEach((img, idx) => {
+      const imgArrIdx = idx % 4;
+      imgArr[imgArrIdx].push(img);
+    });
+
+    return imgArr;
+  };
 
   return (
     <div className="Home">
@@ -87,7 +111,28 @@ function Home() {
         </div>
       </section>
 
-      <section className="home-section3"></section>
+      <section className="home-section3">
+        <div className="event-title">
+          <div className="sub-title">중앙 학술 프로그래밍 동아리</div>
+          <h3 className="title">
+            <span>인터페이스</span>의 <br />
+            특별한 동아리 행사
+          </h3>
+        </div>
+        <div className="event-wrapper">
+          {createImgArr().map((col, col_idx) => {
+            return (
+              <div className={`image-col image-col-${col_idx}`}>
+                {col.map((img) => (
+                  <div className="img-card">
+                    <img src={img} />
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
