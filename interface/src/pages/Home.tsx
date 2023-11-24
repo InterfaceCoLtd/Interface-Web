@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Common/Header";
 import FloatingCircles from "../components/Common/FloatingCircles";
 
@@ -18,7 +18,27 @@ const event_imgs = [
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const element = useRef<HTMLDivElement | null>(null);
+  const [InviewPort, setInviewPort] = useState<boolean>(false);
+
   useEffect(() => {
+    const obseverCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setInviewPort(true);
+        } else if (!entry.isIntersecting) {
+          setInviewPort(false);
+        }
+      });
+    };
+    const observer = new IntersectionObserver(obseverCallback, {
+      threshold: 0.2,
+    }); //초기화
+
+    if (element.current) {
+      observer.observe(element.current);
+    }
+
     setIsOpen(false);
     const timeoutId = setTimeout(() => {
       setIsOpen(true);
@@ -119,7 +139,10 @@ function Home() {
             특별한 동아리 행사
           </h3>
         </div>
-        <div className="event-wrapper">
+        <div
+          className={`event-wrapper ${InviewPort && "event-wrapper-up"}`}
+          ref={element}
+        >
           {createImgArr().map((col, col_idx) => {
             return (
               <div className={`image-col image-col-${col_idx}`}>
