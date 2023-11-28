@@ -47,6 +47,10 @@
   position: relative;
   z-index: 1;
   min-width: 1200px;
+  
+}
+.Header .headerLeft .logo{
+  width:150px;
 }
 .Header .headerLeft {
   margin-right: 40px;
@@ -552,6 +556,7 @@
 .Home {
   background-color: var(--purple-bg-color);
   z-index: -1;
+
 }
 
 .Home .home-section1 {
@@ -815,4 +820,340 @@
   width: 280px;
   height: 360px;
   object-fit: cover;
+}
+
+@media only screen and (max-width:  1024px) {
+
+  
+  .Header {
+    background-color: rgba(255, 255, 255, 0.3);
+    display:block;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    min-width:0px;
+  }
+  .Header .headerLeft {
+    margin-right: 0px;
+    display:block;
+    text-align: center;
+  }
+  .Header .headerLeft .logo{
+    width:100px;
+  }
+  .Header .headerCenter {
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  .Header .headerCenter .cateLink {
+    text-decoration: none;
+    color: #5b5b5c;
+    margin-right: 0px;
+    font-weight: 600;
+    font-size: 10px;
+  }
+
+  .Header .headerCenter .cateLink.login {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .Header .headerCenter .cateLink:hover {
+    color: #657eff;
+  }
+
+  .Header .headerRight .cateLink {
+    color: #657eff;
+    font-size: 10px;
+    text-decoration: none;
+  }
+
+  .Header .headerRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Header .headerRight > * {
+    font-size: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .Header .headerRight .bar {
+    width: 1.5px;
+    height: 18px;
+    margin: 0 10px;
+    background-color: #657eff;
+  }
+
+  
+  /* Login */
+
+  .Login {
+    background-color: #d8dfff;
+    position: relative;
+    min-height: 100vh;
+    text-align: center;
+    min-width: 0px;
+    padding-bottom: 30px;
+  }
+
+  .Login .logo3 {
+    position: relative;
+    margin: 50px 0;
+    width: 10%;
+    min-width: 100px;
+  }
+
+  .Login .signup-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+    align-items: center;
+  }
+
+  .Login .signup-text {
+    color: #657eff;
+    cursor: pointer;
+    font-family: "Pretendard-Regular";
+  }
+
+  .Login .bar {
+    width: 1px;
+    height: 16px;
+    margin: 0 10px;
+    background-color: #657eff;
+  }
+
+  .err-msg {
+    color: #ff003e;
+    font-size: 10px;
+    margin: 0 10px;
+    margin-bottom: 15px;
+  }
+
+  /* LoginBox */
+
+  .LoginBox {
+    padding: 25px 20px;
+    width: 90%;
+    min-width: 0px;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  .LoginBox .id-pw-input-label {
+    color: #657eff;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .LoginBox .id-pw-input-box {
+    width: 100%;
+    height: fit-content;
+    padding: 10px 15px;
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+
+  .LoginBox .id-pw-input-box:focus {
+    box-shadow: 0 0 10px #657eff;
+  }
+
+  .LoginBox .id-pw-input-box::placeholder {
+    font-weight: 500;
+    color: #919192;
+  }
+
+  .LoginBox .login-btn {
+
+    width: 80px;
+    height: fit-content;
+    padding : 5px 24px;
+    font-weight: 100;
+    font-size: 12px;
+  }
+
+  .LoginBox .login-btn:hover {
+    background: #658fff;
+    transition: background-color 0.2s;
+  }
+
+  .LoginBox .login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px #657eff;
+  }
+
+  .LoginBox .login-btn:active {
+    box-shadow: 0 0 10px #657eff;
+  }
+/* Home */
+  .Home{
+    width : 100%;
+  }
+
+  .Home .apply-box{
+    min-width: 0;
+    width : 80%;
+    height : fit-content;
+    padding : 24px 0;
+    margin: 50px  auto;
+  }
+
+  .Home .apply-box img{
+    width : 20px;
+  }
+
+
+  .Home .apply-button{
+    font-size: 10px;
+    margin-top : 20px;
+    margin-bottom :  0;
+    padding : 8px 20px;
+    height : fit-content;
+  }
+
+
+
+  .Home .apply-title{
+    font-size: 16px;
+    letter-spacing: -2px;
+    line-height: 26px;
+  }
+
+  .Home .apply-sub-title {
+    font-size: 10px;
+  }
+
+  .Home .home-section1 {
+    min-width: 0;
+  }
+
+  .Home .box-wrapper{
+    /* display: block; */
+    display: flex;
+    margin-bottom: 100px;
+  }
+
+  .Home .box-wrapper .box-period,
+  .Home .box-wrapper .box-target {
+    width: 90%;
+    height : 150px;
+    padding: 10px;
+    margin: 50px 10px;
+  }
+  .Home .box-wrapper .title {
+    font-size: 15px;
+  }
+
+  .Home .box-wrapper .content {
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+  .Home .box-wrapper .date {
+    font-size: 15px;
+  }
+  .Home .box-wrapper .last {
+    font-size: 8px;
+  }
+  .Home .box-wrapper .icon {
+    width: 40px;
+    height: 40px;
+  }
+  .Home .box-wrapper .icon img {
+    width: 20px;
+  }
+
+
+  .Home .bg-black{
+    padding : 80px 0;
+    height: fit-content;
+    min-width : 0;
+    overflow: hidden;
+  }
+
+  .Home .section2-text-box{
+    margin : 0;
+    margin-left: 30px;
+  }
+
+  .Home .section2-text-box>h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .Home .section2-text-box>p{
+    width : 90vw;
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+
+  .Home .transparent-layer{
+    right : 0px;
+  }
+
+  .Home .blue-button{
+    margin : 0;
+    font-size: 10px;
+    margin-top : 20px;
+    margin-bottom :  0;
+    padding : 6px 24px;
+    height : fit-content;
+
+  }
+
+  .Home .discord-img{
+    width : 400px;
+    top : 0;
+    right : -70%;
+  }
+    
+  .Home .event-title .sub-title {
+    font-size: 15px;
+  }
+  .Home .event-title {
+    margin: 100px 0;
+  }
+  .Home .event-title .title {
+    font-size: 30px;
+  }
+
+ 
+  .Home .event-wrapper .image-col {
+    margin: 5px;
+  }
+
+  .Home .event-wrapper .image-col-0 {
+  }
+
+  .Home .event-wrapper .image-col-1 {
+    margin-top: 50px;
+  }
+  .Home .event-wrapper .image-col-2 {
+    margin-top: 30px;
+  }
+  .Home .event-wrapper .image-col-3 {
+  }
+
+  .Home .home-section3 {
+    padding-bottom: 100px;
+  }
+
+  .Home .img-card {
+    width: 80px;
+    height: 90px;
+    margin: 5px 0;
+  }
+  .Home .img-card img {
+    width: 80px;
+    height: 90px;
+  }
+
 }

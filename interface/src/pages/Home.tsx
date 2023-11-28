@@ -74,7 +74,7 @@ function Home() {
             <span>인터페이스</span>에서 <br />
             37기 신입부원을 모집합니다!!
           </h2>
-          <button className="apply-button blue-button">지금 지원하기</button>
+          <button className="apply-button blue-button" onClick={()=>{window.location.href="https://forms.gle/nm9ujY77yx3EViGN9"}}>지금 지원하기</button>
         </div>
         <div className={`box-wrapper ${isOpen ? "open" : ""}`}>
           <div className="box-period  white-box">

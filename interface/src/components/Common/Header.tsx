@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = () => {
             className="logo"
             alt=""
             src={process.env.PUBLIC_URL + `/assets/interface_logo.png`}
-            width="150px"
+            
           ></img>
         </Link>
       </div>
@@ -26,13 +26,10 @@ const Header: React.FC<HeaderProps> = () => {
       {userToken ? (
         <div className="headerCenter">
           <Link className="cateLink" to={"/"}>
-            user 정보
+            유저 정보
           </Link>
           <Link className="cateLink" to={"/notice"}>
             공지사항 작성
-          </Link>
-          <Link className="cateLink" to={"/"}>
-            디스코드 바로가기
           </Link>
           <div className="headerRight">
             <Link className="cateLink" to={"/"}>
@@ -42,12 +39,13 @@ const Header: React.FC<HeaderProps> = () => {
         </div>
       ) : (
         <div className="headerCenter">
-          <Link className="cateLink" to={"/"}>
-            인터페이스를 소개합니다!
+          <a className="cateLink" href="https://forms.gle/nm9ujY77yx3EViGN9">
+            37기 지원하기
+          </a>
+          <Link className="cateLink"  to={"/"}>
+            인터페이스 소개
           </Link>
-          <Link className="cateLink" to={"/"}>
-            37기 지원하러 가기
-          </Link>
+          
 
           <div className="headerRight">
             <Link className="cateLink login" to={"/Login"}>
