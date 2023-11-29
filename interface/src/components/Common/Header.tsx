@@ -1,14 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   const navigate = useNavigate();
-
-  const userToken = sessionStorage.getItem("userToken");
-
   const [toggle, setToggle] = useState(false);
+  const userToken = sessionStorage.getItem("userToken");
 
   return (
     <div className="Header">
@@ -18,7 +16,6 @@ const Header: React.FC<HeaderProps> = () => {
             className="logo"
             alt=""
             src={process.env.PUBLIC_URL + `/assets/interface_logo.png`}
-            
           ></img>
         </Link>
       </div>
@@ -32,8 +29,14 @@ const Header: React.FC<HeaderProps> = () => {
             공지사항 작성
           </Link>
           <div className="headerRight">
-            <Link className="cateLink" to={"/"}>
-              ADMIN님, 어서오세요!
+            <Link
+              className="cateLink"
+              to={"/"}
+              onClick={() => {
+                sessionStorage.removeItem("userToken");
+              }}
+            >
+              로그아웃
             </Link>
           </div>
         </div>
@@ -42,10 +45,9 @@ const Header: React.FC<HeaderProps> = () => {
           <a className="cateLink" href="https://forms.gle/nm9ujY77yx3EViGN9">
             37기 지원하기
           </a>
-          <Link className="cateLink"  to={"/"}>
+          <Link className="cateLink" to={"/"}>
             인터페이스 소개
           </Link>
-          
 
           <div className="headerRight">
             <Link className="cateLink login" to={"/Login"}>

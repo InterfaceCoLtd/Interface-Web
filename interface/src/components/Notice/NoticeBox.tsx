@@ -29,9 +29,14 @@ const NoticeBox: React.FC = () => {
   const contentInputRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
-    apiGetPlans(selectedMonth.getMonth() + 1).then((data) => {
-      setPlansData(data);
-    });
+    apiGetPlans(selectedMonth.getMonth() + 1)
+      .then((data) => {
+        setPlansData(data);
+      })
+      .catch((err) => {
+        alert("로그인하세요");
+        navigate("/login");
+      });
   }, [selectedMonth]);
 
   useEffect(() => {
@@ -61,9 +66,14 @@ const NoticeBox: React.FC = () => {
   };
 
   useEffect(() => {
-    apiGetVotes().then((data) => {
-      setVotesData(data);
-    });
+    apiGetVotes()
+      .then((data) => {
+        setVotesData(data);
+      })
+      .catch((err) => {
+        alert("로그인하세요");
+        navigate("/login");
+      });
   }, []);
 
   const changePlusVote = (item: VoteType) => {

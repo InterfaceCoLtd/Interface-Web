@@ -1,27 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Common/Header";
 import FloatingCircles from "../components/Common/FloatingCircles";
-
-const event_imgs = [
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://i.pinimg.com/236x/7d/64/73/7d6473ff1597973387fab055b8736f18.jpg",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA2MDlfMTMy%2FMDAxNjIzMjAzNzk0ODM2.FEyMkfzKYrw-N7s5DyLE2jap16BBpvvEv52CrBUx3iUg.CuSWzmWqLlfbNvdhWZi6E3sivVS87N4KDcwge4aBig0g.JPEG.nicenice133%2F3.jpeg&type=sc960_832",
-  "https://i.pinimg.com/236x/0d/94/03/0d9403c6e70152a3f4afc1507307bb22.jpg",
-];
+import apiGetEventImgs from "../utils/apiGetEventImgs";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
   const element = useRef<HTMLDivElement | null>(null);
   const [InviewPort, setInviewPort] = useState<boolean>(false);
+  const [eventImgs, setEventImgs] = useState<string[]>([]);
 
   useEffect(() => {
+    apiGetEventImgs(2023).then(({ data }) => {
+      setEventImgs(data);
+    });
+
     const obseverCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -54,7 +47,7 @@ function Home() {
 
     for (let i = 0; i < 4; i++) imgArr[i] = [];
 
-    event_imgs.forEach((img, idx) => {
+    eventImgs.forEach((img, idx) => {
       const imgArrIdx = idx % 4;
       imgArr[imgArrIdx].push(img);
     });
@@ -74,7 +67,14 @@ function Home() {
             <span>인터페이스</span>에서 <br />
             37기 신입부원을 모집합니다!!
           </h2>
-          <button className="apply-button blue-button" onClick={()=>{window.location.href="https://forms.gle/nm9ujY77yx3EViGN9"}}>지금 지원하기</button>
+          <button
+            className="apply-button blue-button"
+            onClick={() => {
+              window.location.href = "https://forms.gle/nm9ujY77yx3EViGN9";
+            }}
+          >
+            지금 지원하기
+          </button>
         </div>
         <div className={`box-wrapper ${isOpen ? "open" : ""}`}>
           <div className="box-period  white-box">
@@ -118,7 +118,12 @@ function Home() {
               서버 부스트를 하여 일반 디코 서버보다 좋은 화질과 오디오 품질로
               사용이 가능합니다.
             </p>
-            <button className="blue-button discord-button">
+            <button
+              className="blue-button discord-button"
+              onClick={() => {
+                window.location.href = "https://discord.gg/5NZmJRqxU9";
+              }}
+            >
               디스코드 바로가기
             </button>
           </div>

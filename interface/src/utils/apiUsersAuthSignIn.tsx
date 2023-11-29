@@ -7,7 +7,6 @@ const apiUserAuthSingIn = async (email: string, password: string) => {
       password: password,
     });
     const token = response.headers.authorization;
-    console.log("token:" + token);
     sessionStorage.setItem("userToken", token);
   } catch (error) {
     throw error;

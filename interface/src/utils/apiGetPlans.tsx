@@ -1,15 +1,16 @@
 import axios from "axios";
+import { addListener } from "process";
 
 const apiGetPlans = async (month: number) => {
   try {
     const response = await axios.get(`/api/schedules/month/${month}`, {
       headers: {
-        Authorization: process.env.REACT_APP_TOKEN,
+        Authorization: sessionStorage.getItem("userToken"),
       },
     });
     return response.data;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 };
 

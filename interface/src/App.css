@@ -47,10 +47,9 @@
   position: relative;
   z-index: 1;
   min-width: 1200px;
-  
 }
-.Header .headerLeft .logo{
-  width:150px;
+.Header .headerLeft .logo {
+  width: 150px;
 }
 .Header .headerLeft {
   margin-right: 40px;
@@ -556,7 +555,6 @@
 .Home {
   background-color: var(--purple-bg-color);
   z-index: -1;
-
 }
 
 .Home .home-section1 {
@@ -810,7 +808,7 @@
 
 .Home .img-card {
   width: 280px;
-  height: 360px;
+  height: 380px;
   border-radius: 20px;
   overflow: hidden;
   background-color: #b2beff;
@@ -818,16 +816,14 @@
 }
 .Home .img-card img {
   width: 280px;
-  height: 360px;
+  height: 380px;
   object-fit: cover;
 }
 
-@media only screen and (max-width:  1024px) {
-
-  
+@media only screen and (max-width: 1024px) {
   .Header {
     background-color: rgba(255, 255, 255, 0.3);
-    display:block;
+    display: block;
     border-bottom: 1px solid #ddd;
     padding: 15px;
     top: 0;
@@ -836,15 +832,15 @@
     font-weight: 500;
     position: relative;
     z-index: 1;
-    min-width:0px;
+    min-width: 0px;
   }
   .Header .headerLeft {
     margin-right: 0px;
-    display:block;
+    display: block;
     text-align: center;
   }
-  .Header .headerLeft .logo{
-    width:100px;
+  .Header .headerLeft .logo {
+    width: 100px;
   }
   .Header .headerCenter {
     justify-content: space-between;
@@ -892,7 +888,6 @@
     background-color: #657eff;
   }
 
-  
   /* Login */
 
   .Login {
@@ -973,10 +968,9 @@
   }
 
   .LoginBox .login-btn {
-
     width: 80px;
     height: fit-content;
-    padding : 5px 24px;
+    padding: 5px 24px;
     font-weight: 100;
     font-size: 12px;
   }
@@ -994,35 +988,32 @@
   .LoginBox .login-btn:active {
     box-shadow: 0 0 10px #657eff;
   }
-/* Home */
-  .Home{
-    width : 100%;
+  /* Home */
+  .Home {
+    width: 100%;
   }
 
-  .Home .apply-box{
+  .Home .apply-box {
     min-width: 0;
-    width : 80%;
-    height : fit-content;
-    padding : 24px 0;
-    margin: 50px  auto;
+    width: 80%;
+    height: fit-content;
+    padding: 24px 0;
+    margin: 50px auto;
   }
 
-  .Home .apply-box img{
-    width : 20px;
+  .Home .apply-box img {
+    width: 20px;
   }
 
-
-  .Home .apply-button{
+  .Home .apply-button {
     font-size: 10px;
-    margin-top : 20px;
-    margin-bottom :  0;
-    padding : 8px 20px;
-    height : fit-content;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding: 8px 20px;
+    height: fit-content;
   }
 
-
-
-  .Home .apply-title{
+  .Home .apply-title {
     font-size: 16px;
     letter-spacing: -2px;
     line-height: 26px;
@@ -1036,7 +1027,7 @@
     min-width: 0;
   }
 
-  .Home .box-wrapper{
+  .Home .box-wrapper {
     /* display: block; */
     display: flex;
     margin-bottom: 100px;
@@ -1045,7 +1036,7 @@
   .Home .box-wrapper .box-period,
   .Home .box-wrapper .box-target {
     width: 90%;
-    height : 150px;
+    height: 150px;
     padding: 10px;
     margin: 50px 10px;
   }
@@ -1071,50 +1062,48 @@
     width: 20px;
   }
 
-
-  .Home .bg-black{
-    padding : 80px 0;
+  .Home .bg-black {
+    padding: 80px 0;
     height: fit-content;
-    min-width : 0;
+    min-width: 0;
     overflow: hidden;
   }
 
-  .Home .section2-text-box{
-    margin : 0;
+  .Home .section2-text-box {
+    margin: 0;
     margin-left: 30px;
   }
 
-  .Home .section2-text-box>h3{
+  .Home .section2-text-box > h3 {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
-  .Home .section2-text-box>p{
-    width : 90vw;
+
+  .Home .section2-text-box > p {
+    width: 90vw;
     font-size: 8px;
     margin-bottom: 10px;
   }
 
-  .Home .transparent-layer{
-    right : 0px;
+  .Home .transparent-layer {
+    right: 0px;
   }
 
-  .Home .blue-button{
-    margin : 0;
+  .Home .blue-button {
+    margin: 0;
     font-size: 10px;
-    margin-top : 20px;
-    margin-bottom :  0;
-    padding : 6px 24px;
-    height : fit-content;
-
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding: 6px 24px;
+    height: fit-content;
   }
 
-  .Home .discord-img{
-    width : 400px;
-    top : 0;
-    right : -70%;
+  .Home .discord-img {
+    width: 400px;
+    top: 0;
+    right: -70%;
   }
-    
+
   .Home .event-title .sub-title {
     font-size: 15px;
   }
@@ -1125,7 +1114,6 @@
     font-size: 30px;
   }
 
- 
   .Home .event-wrapper .image-col {
     margin: 5px;
   }
@@ -1155,5 +1143,4 @@
     width: 80px;
     height: 90px;
   }
-
 }
